@@ -1,14 +1,33 @@
-<Project Name> by JEeBerS
+# <Project Name> by JEeBerS
 
 
-Roles:
-Emory Walsh - PM
-Benjamin Avrahami -
-Jacob Olin -
-Sophie Nichol -
+#**Roster / Roles:**
+<<<<<<< HEAD
 
-Description:
+- Emory Walsh
+  - Project Manager
+  - Make changes to design doc
+  - Make sure everyone is on track
+- Benjamin Avrahami
+  - role 1
+  - role 2
+  - role 3
+- Jacob Olin
+  - role 1
+  - role 2
+  - role 3
+- Sophie Nichol
+  - role 1
+  - role 2
+  - role 3
 
-APIs?:
+#**Website Description:**
+<<<<<<< HEAD
 
-Launch Code:
+
+#**APIs?:**
+<<<<<<< HEAD
+
+
+#**Launch Code:**
+<<<<<<< HEAD
