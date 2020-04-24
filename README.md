@@ -21,7 +21,6 @@
   - role 3
 
 ## Website Description:
-<<<<<<< HEAD
 Description goes here
 
 
