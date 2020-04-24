@@ -70,5 +70,4 @@ After installing the required dependencies, all you need to do to run the progra
 ```bash
 python3 app/__init__.py
 ```
-Again, remove the 3 after the "python" if necessary.
 =======
