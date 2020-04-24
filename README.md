@@ -1,8 +1,7 @@
 # <Project Name> by JEeBerS
 
 
-#**Roster / Roles:**
-<<<<<<< HEAD
+#Roster / Roles:
 
 - Emory Walsh
   - Project Manager
@@ -21,13 +20,10 @@
   - role 2
   - role 3
 
-#**Website Description:**
-<<<<<<< HEAD
+#Website Description:
 
 
-#**APIs?:**
-<<<<<<< HEAD
+#APIs?:
 
 
-#**Launch Code:**
-<<<<<<< HEAD
+#Launch Code:
