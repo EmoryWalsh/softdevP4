@@ -6,27 +6,19 @@
 - Emory Walsh
   - Project Manager
   - Make changes to design doc
-  - Make sure everyone is on track
+  - Whatever else is needed
 - Benjamin Avrahami
-  - role 1
-  - role 2
-  - role 3
+  - Back end
+  - Reading data and sending data to JS
 - Jacob Olin
-  - role 1
-  - role 2
-  - role 3
+  - Front end
+  - Creating the map
 - Sophie Nichol
-  - role 1
-  - role 2
-  - role 3
+  - Front End
+  - JS / D3 graphs
 
 ## Website Description:
 Description goes here
-
-
-## APIs?:
-API Info goes here
-
 
 ## Launch Code:
 
