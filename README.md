@@ -18,7 +18,7 @@
   - JS / D3 graphs
 
 ## Website Description:
-The Happiness Project is a website dedicated to analyzing the data from the 2016 World Happiness Report to discuss and compare the happiness in every country. One can view the data about individual countries, or they can view and compare data between different regions of the world.
+The Happiness Project is a website dedicated to analyzing the data from the 2016 World Happiness Report to discuss and access the happiness in every country. One can view the data about individual countries, or they can view and compare data between different regions of the world.
 
 ## Launch Code:
 
