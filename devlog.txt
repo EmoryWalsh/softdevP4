@@ -2,4 +2,5 @@ Each entry should begin with the following format:
   firstL -- TIMESTAMP\n
 
 emoryW -- 2020-04-26
-- basic flask app set up
+- Basic flask app set up
+- Added new route/html/js for graphs
