@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8"/>
-		<title>Happiness Graphs</title>
-	</head>
-	<body>
-		<div id="svg-container"></div>
+{% extends 'base.html' %}
 
+{% block title %}Happiness Graphs{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block content %}
+			<div id="svg-container"></div>
+{% endblock %}
+
+{% block script %}
 		<script src="https://unpkg.com/topojson-client@3"></script>
 		<script src="http://d3js.org/d3.v5.min.js"></script>
-  	<script src="static/js/graphs.js"></script>
-	</body>
-</html>
+		<script src="static/js/graphs.js"></script>
+{% endblock %}
