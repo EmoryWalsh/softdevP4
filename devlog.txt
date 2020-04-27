@@ -1,8 +1,5 @@
 Each entry should begin with the following format:
   firstL -- TIMESTAMP\n
 
-
-benjaminA -- 2020-04-26 21:10
-Made a working site
-Added the json file with the country paths
-Created a map of the world (Mercator projection; could be changed in future) and put it on the home page
+emoryW -- 2020-04-26
+- basic flask app set up
