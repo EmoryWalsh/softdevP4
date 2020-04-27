@@ -16,9 +16,12 @@ def stats(country):
 	return "No Such Country"
 
 @app.route('/graphs')
-def graph():
+def graphs():
     return render_template("graphs.html")
 
+@app.route('/help')
+def help():
+    pass
 
 if __name__ == '__main__':
     app.debug = True
