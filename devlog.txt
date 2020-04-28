@@ -5,3 +5,14 @@ emoryW -- 2020-04-26 17:06
 - Basic flask app set up
 - Added new route/html/js for graphs
 - Made html template with header and footer
+
+benjaminA -- 2020-04-26 21:55
+- Added the json file containing the country paths
+- Created a map of the world (Mercator projection) and set it on the home page
+
+benjaminA -- 2020-04-28 01:00
+- Preprocessed data in utl to make the data all in one dictionary and not use unnecessary data
+- Added routes to view data on individual countries
+- Mapped the happiness score of countries to colors on the map
+	Bug: Some countries (including the US) remain black
+- Manually changed country names of the json to fit country names of the csv
