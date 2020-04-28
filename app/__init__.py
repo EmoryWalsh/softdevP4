@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def map():
-    return render_template("home.html",data=ops.allDict())
+    return render_template("maps.html",data=ops.allDict())
 
 @app.route('/nation/<country>')
 def stats(country):
