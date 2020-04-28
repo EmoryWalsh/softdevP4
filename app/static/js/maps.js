@@ -13,7 +13,8 @@ var renderMap = async() => {
                 // d3.geoPath() gets the coordinates from the data object and constructs a path
                 .attr('d', d3.geoPath().projection(d3.geoMercator()))
                 .attr('class', 'pathFill')
-                .attr('fill', d => color(colorMapper, d)));
+                .attr('fill', d => color(colorMapper, d))
+                .on("click", scoreShow));
 }
 
 
@@ -31,6 +32,19 @@ const createSVG = () => {
 }
 
 
+var scoreShow = function(d) {
+	var name = d['properties']['name'];
+	var score;
+	if (data[name] == undefined) {
+		score = "N/A";
+	}
+	else {
+		score = data[name]['score'];
+	}
+	alert("Country - "+name+"\nHappiness Score = "+score);
+}
+
+
 var genMapper = () => {
 	return d3.scaleLinear().domain([2.9,5.1,7.526]).range(["red","yellow","green"]);
 }
@@ -39,7 +53,6 @@ var genMapper = () => {
 const color = (colorMapper,d) => {
 	var name = d['properties']['name'];
 	if (data[name] == undefined) {
-		console.log(name);
 		return "#000000";
 	}
 	var num = data[name]['score'];
