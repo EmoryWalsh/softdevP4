@@ -15,10 +15,13 @@ with open("static/data/2016.csv","r") as file:
 		app['trust'] = row[10]
 		app['generosity'] = row[11]
 		app['other'] = row[12]
-		countries[row[0].replace(" ","")] = app
+		countries[row[0]] = app
 
 def isCountry(name):
-	return name in countries
+	return name.replace(" ","") in countries
 
 def countryDict(name):
-	return countries[name]
+	return countries[name.replace(" ","")]
+
+def allDict():
+	return countries
