@@ -20,7 +20,7 @@ const createSVG = () => {
     let map = d3.select('#svg-container').append('svg')
             // 975 by 610 is the default size for rendering a map of the USA
             .attr("viewBox", [0, 0, 975, 610])
-            .attr("width", "60%")
+            .attr("width", "100%")
            	.append('g');
 
 
