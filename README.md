@@ -61,6 +61,6 @@ To activate the virtual environment, cd into the directory you created the envir
 After installing the required dependencies, all you need to do to run the program is to type into a terminal session:
 ```bash
 cd app
-python __init__.py
+python3 __init__.py
 ```
 A*gain, remove the 3 after the "python" if necessary.*
