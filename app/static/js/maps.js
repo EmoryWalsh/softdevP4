@@ -38,7 +38,7 @@ const createSVG = () => {
 
 
 var genMapper = () => {
-	return d3.scaleLinear().domain([2.85,7.6]).range(["red","green"]);
+	return d3.scaleLinear().domain([2.9,5.1,7.526]).range(["red","yellow","green"]);
 }
 
 
