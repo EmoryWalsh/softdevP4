@@ -1,6 +1,8 @@
 var btn = document.getElementById("btn");
+var instructions = document.getElementById("instructions");
 
 var renderMap = async() => {
+	instructions.style.display = "none";
 	var world = await d3.json('/static/data/countries-10m.json');
 	var pathData = topojson.feature(world,world.objects.countries).features;
 
