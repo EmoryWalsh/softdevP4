@@ -16,3 +16,8 @@ benjaminA -- 2020-04-28 01:00
 - Mapped the happiness score of countries to colors on the map
 	Bug: Some countries (including the US) remain black
 - Manually changed country names of the json to fit country names of the csv
+
+walshE -- 2020-04029 15:19
+- Updated design doc with the feedback of fellow devos taken into account
+- Changed site map to have a nicer user experience
+
