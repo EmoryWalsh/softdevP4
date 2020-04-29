@@ -9,6 +9,43 @@
 
 {% block content %}
 		<div id="svg-container"></div>
+		<br>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="dropdown" class="col">
+      		<button class="btn btn-secondary dropdown-toggle" type="button" id="factorDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose a factor to examine:</button>
+      		<div class="dropdown-menu" aria-labelledby="factorDropdown">
+        		<a class="dropdown-header">Factors</li>
+        		<a class="dropdown-item" href="">Economic Production</a>
+        		<a class="dropdown-item" href="">Social Support</a>
+						<a class="dropdown-item" href="">Life Expectancy</a>
+						<a class="dropdown-item" href="">Freedom</a>
+						<a class="dropdown-item" href="">Absence of Corruption</a>
+						<a class="dropdown-item" href="">Generosity</a>
+    				</div>
+    			</div>
+				</div>
+				<div class="col">
+    			<div class="dropdown">
+      		<button class="btn btn-secondary dropdown-toggle" type="button" id="regionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose a region to examine:</button>
+      		<div class="dropdown-menu" aria-labelledby="regionDropdown">
+        		<a class="dropdown-header">Regions</li>
+        		<a class="dropdown-item" href="">North America</a>
+        		<a class="dropdown-item" href="">Western Europe</a>
+						<a class="dropdown-item" href="">Australia and New Zealand</a>
+						<a class="dropdown-item" href="">Middle East and Northern Africa</a>
+						<a class="dropdown-item" href="">Latin America and Caribbean</a>
+						<a class="dropdown-item" href="">Southeastern Asia</a>
+						<a class="dropdown-item" href="">Central and Eastern Europe</a>
+						<a class="dropdown-item" href="">Eastern Asia</a>
+						<a class="dropdown-item" href="">Sub-Saharan Africa</a>
+						<a class="dropdown-item" href="">Southern Asia</a>
+      		</div>
+    		</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 
 {% block script %}
