@@ -12,24 +12,26 @@
       div {
         font-family: myFirstFont;
       }
-      .title {
+      .description {
     		padding-top: 25px;
     		padding-bottom: 20px;
     		color:#10C135;
     		background-color:white;
     	}
-      {% block style %}
-      {% endblock %}
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        padding-top: 50px;
+      }
     </style>
 
     <head>
         <meta charset="UTF-8">
         <title>
-            {% block title %}
-            {% endblock %}
+            Home
         </title>
-        {% block heading %}
-        {% endblock %}
     </head>
 
     <body style="background-color:#D19C4C;">
@@ -43,7 +45,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
                 <a class="nav-item nav-link" href={{ url_for('home') }}>Home</a>
-                <a class="nav-item nav-link " href={{ url_for('map') }}>Happiness Map</a>
+                <a class="nav-item nav-link" href={{ url_for('map') }}>Happiness Map</a>
                 <a class="nav-item nav-link" href={{ url_for('graphs') }}>Graphs</a>
                 <a class="nav-item nav-link" href={{ url_for('help') }}>Help</a>
               </div>
@@ -51,14 +53,13 @@
           </nav>
 
           <br>
-      		<div class="container text-center border rounded title">
-      			<h1>{% block pgtitle %}{% endblock %}</h1>
-      		</div>
 
-          {% block content %}
-          {% endblock %}
+          <div class="container text-center border rounded description">
+            <h3>Our mission blah blah</h3>
+            <img src="/static/img/people.jpg" width="40%" height="40%" class="center">
+          </div>
 
-          <br><br><br>
+          <br><br><br><br><br><br><br><br><br>
 
           <footer class="footer fixed-bottom bg-dark">
               <br>
