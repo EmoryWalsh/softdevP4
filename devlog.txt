@@ -20,4 +20,8 @@ benjaminA -- 2020-04-28 01:00
 walshE -- 2020-04029 15:19
 - Updated design doc with the feedback of fellow devos taken into account
 - Changed site map to have a nicer user experience
-
+- Feedback from team 'I am not ok with this'
+    - They said that everything looked good and just suggested to make minor adjustments to format of DD
+- Feedback from team 'ihatequarantine'
+    - They asked for a description of each relevant link, and clarification of one of our diagrams
+- Timeline adjustments shouldn't be necessary because we planned to finish earlier than deadline
