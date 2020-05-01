@@ -20,6 +20,7 @@ function regAvg(reg, fac){
 
 console.log(regAvg('North America', 'freedom'));
 //console.log("hi");
+
 /*
 function graphRegion(reg){
 
