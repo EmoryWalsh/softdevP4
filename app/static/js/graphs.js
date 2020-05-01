@@ -5,16 +5,20 @@ function regAvg(reg, fac){
   var total = 0;
   var num = 0;
   var country;
-  for (country in data['properties']['name']){
-    if (data[name]['region'] == reg){
-      total += data[name][fac]; //need to fins a way to sub in fac
+//  console.log(data["Denmark"])
+  for (country in data){
+    if (data[country]['region'] == reg){
+      console.log(data[country][fac]);
+      total += parseFloat(data[country][fac]); //need to fins a way to sub in fac
       num ++;
+      //console.log(data[country])
     }
   }
+  console.log(total)
   return total / num;
 }
 
-console.log(regAvg('North America', 'Freedom'));
+console.log(regAvg('North America', 'freedom'));
 console.log("hi");
 /*
 function graphRegion(reg){
