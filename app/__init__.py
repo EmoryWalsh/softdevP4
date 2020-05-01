@@ -21,7 +21,7 @@ def stats(country):
 
 @app.route('/graphs')
 def graphs():
-    return render_template("graphs.html")
+    return render_template("graphs.html",data=ops.allDict())
 
 @app.route('/help')
 def help():
