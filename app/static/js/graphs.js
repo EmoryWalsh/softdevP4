@@ -12,9 +12,11 @@ function regAvg(reg, fac){
   return total / num
 }
 
-print(regAvg('North America', 'Freedom'))
+console.log(regAvg('North America', 'Freedom'));
+console.log("hi");
 
 function graphRegion(reg){
+
 }
 
 function graphFactor(fac){
