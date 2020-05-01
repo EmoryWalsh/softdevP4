@@ -31,3 +31,7 @@ walshE -- 2020-04-30 14:06
 - Started designing home page
 - Added requirements.txt
 - Added team flag
+
+walshE -- 2020-05-01 15:10
+- Got data to be accessible in graphs.js
+- Helped Sophie debug avg function
