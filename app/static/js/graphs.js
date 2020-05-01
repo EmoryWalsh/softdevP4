@@ -5,9 +5,10 @@ function regAvg(reg, fac){
   var total = 0;
   var num = 0;
   var country;
-  for (country in data['properties']['name']){
+  for (country in data){
+    var name = country['properties']['name'];
     if (data[name]['region'] == reg){
-      total += data[name][fac]; //need to fins a way to sub in fac
+      total += data[name][fac]; //need to find a way to sub in fac
       num ++;
     }
   }
