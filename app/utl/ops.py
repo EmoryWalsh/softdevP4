@@ -1,6 +1,7 @@
 import csv
 
 countries = {}
+nscountries = {}
 
 with open("static/data/2016.csv","r") as file:
 	reader = csv.reader(file,delimiter=',')
@@ -16,12 +17,13 @@ with open("static/data/2016.csv","r") as file:
 		app['generosity'] = row[11]
 		app['other'] = row[12]
 		countries[row[0]] = app
+		nscountries[row[0].replace(" ","")] = app
 
 def isCountry(name):
-	return name.replace(" ","") in countries
+	return name in nscountries
 
 def countryDict(name):
-	return countries[name.replace(" ","")]
+	return nscountries[name]
 
 def allDict():
 	return countries
