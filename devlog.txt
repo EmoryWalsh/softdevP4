@@ -40,6 +40,10 @@ walshE -- 2020-04-30 14:06
 nicholS -- 2020-04-30 12:46
 - Fixed bootstrap that wasn't working
 
+benjaminA -- 2020-05-01 00:30
+- Improved range of color scale - is now red to yellow to green
+- When a country is clicked on, it now shows the country's name and score
+
 walshE -- 2020-05-01 15:10
 - Got data to be accessible in graphs.js
 - Helped Sophie debug avg function
@@ -56,3 +60,7 @@ nicholS -- 2020-05-04 14:32
 walshE -- 2020-05-04  14:48
 - Made spider plot only show up once
 - Helped debug spider plot data plotting 
+
+benjaminA -- 2020-05-04 15:00
+- Fixed (another) bug regarding spaces in country's names
+- Redirects to a country when clicked on in the map, or an alert is shown if it has no score
