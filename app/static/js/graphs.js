@@ -1,6 +1,7 @@
 var rgn = document.getElementById("regionDropdown");
 var ftr = document.getElementById("factorDropdown");
 
+
 function regAvg(reg, fac){
   var total = 0;
   var num = 0;
@@ -18,38 +19,39 @@ function regAvg(reg, fac){
   return total / num;
 }
 
-console.log(regAvg('North America', 'freedom'));
+function regData(reg){
+  var arr = new Array(regAvg(reg,'economy'), regAvg(reg,'family'), regAvg(reg,'health'), regAvg(reg,'freedom'), regAvg(reg,'trust'), regAvg(reg,'generosity'), regAvg(reg,'other'));
+  return arr;
+}
+
+//console.log(regAvg('North America', 'freedom'));
 //console.log("hi");
+var myReg = rgn.options[rgn.selectedIndex].text;
 
+graphRegion = function(e){
+  data = [{
+  type: 'scatterpolar',
+  r: regData(myReg),
+  theta: ['economy','family','health', 'freedom', 'trust', 'generosity', 'other'],
+  fill: 'toself'
+}]
 
-function graphRegion(reg){
-  var data = [
-  {
-    className: reg,
-    axes: [
-      {axis: "economy", value: regAvg(reg, 'economy')},
-      {axis: "family", value: regAvg(reg, 'family')},
-      {axis: "health", value: regAvg(reg, 'health')},
-      {axis: "freedom", value: regAvg(reg, 'freedom')},
-      {axis: "trust", value: regAvg(reg, 'trust')},
-      {axis: "generosity", value: regAvg(reg, 'generosity')},
-      {axis: "other", value: regAvg(reg, 'other')}
-    ]
-    },
-  ];
-  /*
-  return data.map(function(d) {
-    return {
-      className: d.className,
-      axes: d.axes.map(function(axis) {
-        return {axis: axis.axis, value: Math.ceil(Math.random() * 10)};
-      })
-    };
-  });*/
+layout = {
+  polar: {
+    radialaxis: {
+      visible: true,
+      range: [0, 1]
+    }
+  },
+  showlegend: false
+}
+
+Plotly.newPlot("myDiv", data, layout)
+
 }
 
 function graphFactor(fac){
 }
 
-rgn.addEventListener("click",graphRegion);
-ftr.addEventListener("click",graphFactor);
+rgn.addEventListener("click",graphRegion;
+ftr.addEventListener("click",graphFactor;
