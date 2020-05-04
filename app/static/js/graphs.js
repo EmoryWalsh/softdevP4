@@ -19,33 +19,26 @@ function regAvg(reg, fac){
   return total / num;
 }
 
+rgData = [];
 function regData(reg){
-  var dict = {};
-  dict['economy'] = regAvg(reg,'economy');
-  dict['family'] = regAvg(reg,'family');
-  dict['health'] = regAvg(reg,'health');
-  dict['freedom'] = regAvg(reg,'freedom');
-  dict['trust'] = regAvg(reg,'trust');
-  dict['generosity'] = egAvg(reg,'generosity');
-  dict['other']  = regAvg(reg,'other');
-  return dict;
+  var factors = ['economy', 'family', 'health', 'freedom', 'trust', 'generosity', 'other'];
+  for (var i = 0; i < 7; i++){
+    var point = {};
+    factors.forEach(f => point[f] = regAvg(reg,factors[i]));
+    rgData.push(point);
+  }
+  return factors;
 }
 
 function facData(fac){
-  var dict = {};
-  dict['North America'] = regAvg('North America',fac);
-  dict['Western Europe'] = regAvg('Western Europe',fac);
-  dict['Australia and New Zealand'] = regAvg('Australia and New Zealand',fac);
-  dict['Middle East and Northern Africa'] = regAvg('Middle East and Northern Africa',fac);
-  dict['Latin America and Caribbean'] = regAvg('Latin America and Caribbean',fac);
-  dict['Southeastern Asia'] = regAvg('Southeastern Asia',fac);
-  dict['Central and Eastern Europe'] = regAvg('Central and Eastern Europe',fac);
-  dict['Eastern Asia'] = regAvg('Eastern Asia',fac);
-  dict['Sub-Saharan Africa'] = regAvg('Sub-Saharan Africa',fac);
-  dict['Southern Asia'] = regAvg('Southern Asia',fac);
-  return dict;
-  var arr = new Array(regAvg('North America',fac), regAvg('Western Europe',fac), regAvg('Australia and New Zealand',fac), regAvg('Middle East and Northern Afric',fac), regAvg('Latin America and Caribbean',fac), regAvg("Southeastern Asia",fac), regAvg('Central and Eastern Europe',fac), regAvg('Eastern Asia',fac), regAvg('Sub-Saharan Africa',fac), regAvg('Southern Asia',fac));
-  return arr;
+  fcData = [];
+  var regions = ['North America', 'Western Europe', 'Australia and New Zealand', 'Middle East and Northern Africa', 'Latin America and Caribbean', 'Southeastern Asia', 'Central and Eastern Europe', 'Eastern Asia', 'Sub-Saharan Africa', 'Southern Asia'];
+  for (var i = 0; i < 10; i++){
+    var point = {};
+    regions.forEach(f => point[f] = regAvg(regions[i], fac));
+    fcData.push(point);
+  }
+  return regions;
 }
 
 // stores region selection
@@ -109,6 +102,26 @@ graphFactor = function(e){
     .attr("x", label_coordinate.x)
     .attr("y", label_coordinate.y)
     .text(fac_name);
+
+    line = d3.line()
+      .x(d => d.x)
+      .y(d => d.y);
+    colors = ["darkorange", "gray", "navy"];
+  }
+  for (var i = 0; i < rgData.length; i ++){
+    let d = rgData[i];
+    let color = colors[i];
+    let coordinates = getPathCoordinates(d, factors);
+
+    //draw the path element
+    svg.append("path")
+    .datum(coordinates)
+    .attr("d",line)
+    .attr("stroke-width", 3)
+    .attr("stroke", color)
+    .attr("fill", color)
+    .attr("stroke-opacity", 1)
+    .attr("opacity", 0.5);
   }
 }
 
@@ -117,6 +130,17 @@ function angleToCoordinate(angle, value){
     let x = Math.cos(angle) * radialScale(value);
     let y = Math.sin(angle) * radialScale(value);
     return {"x": 300 + x, "y": 300 - y};
+}
+
+//calculates coordinates of each data point
+function getPathCoordinates(data_point, data){
+    var coordinates = [];
+    for (var i = 0; i < factors.length; i++){
+        var fac_name = factors[i];
+        var angle = (Math.PI / 2) + (2 * Math.PI * i / factors.length);
+        coordinates.push(angleToCoordinate(angle, data_point[fac_name]));
+    }
+    return coordinates;
 }
 
 graphRegion = function(e){
