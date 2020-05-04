@@ -103,27 +103,28 @@ graphFactor = function(e){
     .attr("x", label_coordinate.x)
     .attr("y", label_coordinate.y)
     .text(fac_name);
+  }
 
-    line = d3.line()
+    let line = d3.line()
       .x(d => d.x)
       .y(d => d.y);
-    colors = ["darkorange", "gray", "navy"];
-  }
-  for (var i = 0; i < rgData.length; i ++){
-    let d = rgData[i];
-    let color = colors[i];
-    let coordinates = getPathCoordinates(d, factors);
+    let colors = ["blue", "green", "red"];
 
-    //draw the path element
-    svg.append("path")
-    .datum(coordinates)
-    .attr("d",line)
-    .attr("stroke-width", 3)
-    .attr("stroke", color)
-    .attr("fill", color)
-    .attr("stroke-opacity", 1)
-    .attr("opacity", 0.5);
-  }
+    for (var i = 0; i < rgData.length; i++){
+      let d = rgData[i];
+      let color = colors[i];
+      let coordinates = getPathCoordinates(d, factors);
+
+      //draw the path element
+      svg.append("path")
+        .datum(coordinates)
+        .attr("d",line)
+        .attr("stroke-width", 3)
+        .attr("stroke", color)
+        .attr("fill", color)
+        .attr("stroke-opacity", 1)
+        .attr("opacity", 0.5);
+    }
 }
 
 //maps onto polar graph / converts
@@ -136,9 +137,9 @@ function angleToCoordinate(angle, value){
 //calculates coordinates of each data point
 function getPathCoordinates(data_point, data){
     var coordinates = [];
-    for (var i = 0; i < factors.length; i++){
-        var fac_name = factors[i];
-        var angle = (Math.PI / 2) + (2 * Math.PI * i / factors.length);
+    for (var i = 0; i < data.length; i++){
+        var fac_name = data[i];
+        var angle = (Math.PI / 2) + (2 * Math.PI * i / data.length);
         coordinates.push(angleToCoordinate(angle, data_point[fac_name]));
     }
     return coordinates;
