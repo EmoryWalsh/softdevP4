@@ -26,7 +26,14 @@ function regData(reg){
 
 //console.log(regAvg('North America', 'freedom'));
 //console.log("hi");
-var myReg = rgn.options[rgn.selectedIndex].text;
+var myReg;
+$('#regionDropdown + [aria-labelledby="regionDropdown"] a').on('click', function (e) {
+  e.preventDefault();
+  // get selected option and change background
+  myReg = this;
+  console.log(myReg.textContent);
+})
+//var myReg = rgn.options[rgn.selectedIndex].text;
 
 graphRegion = function(e){
   data = [{
@@ -53,5 +60,5 @@ Plotly.newPlot("myDiv", data, layout)
 function graphFactor(fac){
 }
 
-rgn.addEventListener("click",graphRegion;
-ftr.addEventListener("click",graphFactor;
+rgn.addEventListener("click",graphRegion);
+ftr.addEventListener("click",graphFactor);
