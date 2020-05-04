@@ -43,12 +43,11 @@ var scoreShow = function(d) {
 	var name = d['properties']['name'];
 	var score;
 	if (data[name] == undefined) {
-		score = "N/A";
+		alert("Country does not have data");
 	}
 	else {
-		score = data[name]['score'];
+		window.location = "http://localhost:5000/nation/"+name.replace(" ","");
 	}
-	alert("Country - "+name+"\nHappiness Score = "+score);
 }
 
 
