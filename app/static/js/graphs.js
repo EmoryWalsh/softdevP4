@@ -52,4 +52,4 @@ function graphFactor(fac){
 }
 
 rgn.addEventListener("click",graphRegion);
-ftr.addEventListener("click",graphFactor);*/
+ftr.addEventListener("click",graphFactor);
