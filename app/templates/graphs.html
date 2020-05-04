@@ -32,20 +32,25 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
+				<div class="btn-group" role="group" aria-label="fButtons">
 					<div class="dropdown" class="col">
       		<button class="btn btn-secondary dropdown-toggle" type="button" id="factorDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose a factor to examine:</button>
       		<div class="dropdown-menu" aria-labelledby="factorDropdown">
         		<a class="dropdown-header">Factors</li>
-        		<a class="dropdown-item" href="">Economic Production</a>
-        		<a class="dropdown-item" href="">Social Support</a>
-						<a class="dropdown-item" href="">Life Expectancy</a>
-						<a class="dropdown-item" href="">Freedom</a>
-						<a class="dropdown-item" href="">Absence of Corruption</a>
-						<a class="dropdown-item" href="">Generosity</a>
+        		<a class="dropdown-item">economy</a>
+        		<a class="dropdown-item">family</a>
+						<a class="dropdown-item">health</a>
+						<a class="dropdown-item">freedom</a>
+						<a class="dropdown-item">trust</a>
+						<a class="dropdown-item">generosity</a>
+						<a class="dropdown-item">other</a>
     				</div>
     			</div>
+					<button id="rFac">Render</button>
+				</div>
 				</div>
 				<div class="col">
+				<div class="btn-group" role="group" aria-label="rButtons">
     			<div class="dropdown">
       		<button class="btn btn-secondary dropdown-toggle" type="button" id="regionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose a region to examine:</button>
       		<div class="dropdown-menu" aria-labelledby="regionDropdown">
@@ -62,6 +67,8 @@
 						<a class="dropdown-item" href="">Southern Asia</a>
       		</div>
     		</div>
+				<button id="rReg">Render</button>
+			</div>
 			</div>
 		</div>
 	</div>

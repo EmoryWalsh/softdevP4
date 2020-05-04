@@ -1,5 +1,7 @@
 var rgn = document.getElementById("regionDropdown");
 var ftr = document.getElementById("factorDropdown");
+//var rReg = document.getElementById("rReg");
+//var rFac = document.getElementById("fFac");
 
 
 function regAvg(reg, fac){
@@ -30,11 +32,12 @@ function regData(reg){
   return factors;
 }
 
+fcData = [];
 function facData(fac){
-  fcData = [];
   var regions = ['North America', 'Western Europe', 'Australia and New Zealand', 'Middle East and Northern Africa', 'Latin America and Caribbean', 'Southeastern Asia', 'Central and Eastern Europe', 'Eastern Asia', 'Sub-Saharan Africa', 'Southern Asia'];
   for (var i = 0; i < 10; i++){
     var point = {};
+    console.log(regAvg(regions[i], fac));
     regions.forEach(f => point[f] = regAvg(regions[i], fac));
     fcData.push(point);
   }
@@ -55,8 +58,8 @@ var myFac;
 $('#factorDropdown + [aria-labelledby="factorDropdown"] a').on('click', function (e) {
   e.preventDefault();
   // get selected option and change background
-  myFac = this;
-  console.log(myFac.textContent);
+  myFac = this.textContent;
+  //console.log(myFac.textContent);
 })
 
 graphFactor = function(e){
@@ -83,7 +86,8 @@ graphFactor = function(e){
     .attr("stroke", "white")
     .text(t.toString())
   );
-  var factors = facData(myFac)
+  console.log(myFac);
+  var factors = facData(myFac);
   for (var i = 0; i < factors.length; i++) {
     let fac_name = factors[i];
     let angle = (Math.PI / 2) + (2 * Math.PI * i / factors.length);
@@ -110,10 +114,13 @@ graphFactor = function(e){
       .y(d => d.y);
     let colors = ["blue", "green", "red"];
 
-    for (var i = 0; i < rgData.length; i++){
-      let d = rgData[i];
+    console.log(fcData);
+    for (var i = 0; i < fcData.length; i++){
+      let d = fcData[i];
       let color = colors[i];
       let coordinates = getPathCoordinates(d, factors);
+
+      //console.log(color);
 
       //draw the path element
       svg.append("path")
@@ -148,5 +155,5 @@ function getPathCoordinates(data_point, data){
 graphRegion = function(e){
 }
 
-rgn.addEventListener("click",graphRegion);
-ftr.addEventListener("click",graphFactor);
+rReg.addEventListener("click",graphRegion);
+rFac.addEventListener("click",graphFactor);
