@@ -67,7 +67,8 @@ $('#factorDropdown + [aria-labelledby="factorDropdown"] a').on('click', function
 })
 
 graphFactor = function(e){
-  svg = d3.select("body").append("svg")
+  svg_container.innerHTML = ""
+  svg = d3.select("#svg_container").append("svg")
     .attr("width", 600)
     .attr("height", 600);
   radialScale = d3.scaleLinear()
