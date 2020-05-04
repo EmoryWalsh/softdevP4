@@ -26,12 +26,23 @@ walshE -- 2020-04-29 15:19
     - They asked for a description of each relevant link, and clarification of one of our diagrams
 - Timeline adjustments shouldn't be necessary because we planned to finish earlier than deadline
 
+nicholS -- 2020-04-29 11:23
+- Started bootstrap on graph.html
+- Tried to access data from the graph.js file
+- Started a function to find the average score of a region in a certain factor
+
 walshE -- 2020-04-30 14:06
 - Created new route for home page
 - Started designing home page
 - Added requirements.txt
 - Added team flag
 
+nicholS -- 2020-04-30 12:46
+- Fixed bootstrap that wasn't working
+
 walshE -- 2020-05-01 15:10
 - Got data to be accessible in graphs.js
 - Helped Sophie debug avg function
+
+nicholS -- 2020-05-01 16:12
+- Fixed function to find average for a region
