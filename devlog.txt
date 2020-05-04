@@ -46,3 +46,9 @@ walshE -- 2020-05-01 15:10
 
 nicholS -- 2020-05-01 16:12
 - Fixed function to find average for a region
+
+nicholS -- 2020-05-04 2:32
+- Fixed JQuery to access factor / region selection
+- Made functions to configure data for regional averages / averages by factor
+- made progress with making spider graph o display regional differences in performance for each factor
+- made graph, but data won't plot on graph
