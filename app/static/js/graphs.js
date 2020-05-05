@@ -37,10 +37,11 @@ function facData(fac){
   var regions = ['North America', 'Western Europe', 'Australia and New Zealand', 'Middle East and Northern Africa', 'Latin America and Caribbean', 'Southeastern Asia', 'Central and Eastern Europe', 'Eastern Asia', 'Sub-Saharan Africa', 'Southern Asia'];
   for (var i = 0; i < 10; i++){
     var point = {};
-    console.log(regAvg(regions[i], fac));
-    regions.forEach(f => point[f] = regAvg(regions[i], fac));
-    fcData.push(point);
+    //console.log(regAvg(regions[i], fac));
+    var name = regions[i];
+    regions[name] = regAvg(regions[i], fac);
   }
+  fcData.push(regions);
   return regions;
 }
 
