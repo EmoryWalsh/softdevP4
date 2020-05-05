@@ -59,8 +59,12 @@ nicholS -- 2020-05-04 14:32
 
 walshE -- 2020-05-04  14:48
 - Made spider plot only show up once
-- Helped debug spider plot data plotting 
+- Helped debug spider plot data plotting
 
 benjaminA -- 2020-05-04 15:00
 - Fixed (another) bug regarding spaces in country's names
 - Redirects to a country when clicked on in the map, or an alert is shown if it has no score
+
+walshE -- 2020-05-05 16:38
+- Made graphs easier to use with radio buttons
+- Now able to select multple factors to plot
