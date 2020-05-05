@@ -61,12 +61,14 @@ function regData(reg){
 var fcData;
 function facData(fac){
   fcData = [];
-  var regions = ['North America', 'Western Europe', 'Australia and New Zealand', 'Middle East and Northern Africa', 'Latin America and Caribbean', 'Southeastern Asia', 'Central and Eastern Europe', 'Eastern Asia', 'Sub-Saharan Africa', 'Southern Asia'];
-  for (var i = 0; i < 10; i++){
-    var name = regions[i];
-    regions[name] = regAvg(regions[i], fac);
+  for(var f = 0; f < fac.length; f++){
+    var regions = ['North America', 'Western Europe', 'Australia and New Zealand', 'Middle East and Northern Africa', 'Latin America and Caribbean', 'Southeastern Asia', 'Central and Eastern Europe', 'Eastern Asia', 'Sub-Saharan Africa', 'Southern Asia'];
+    for (var i = 0; i < 10; i++){
+      var name = regions[i];
+      regions[name] = regAvg(regions[i], fac[f]);
+    }
+    fcData.push(regions);
   }
-  fcData.push(regions);
   return regions;
 }
 
