@@ -23,8 +23,8 @@ function regAvg(reg, fac){
 
 rgData = [];
 function regData(reg){
-  var factors = ['economy', 'family', 'health', 'freedom', 'trust', 'generosity', 'other'];
-  for (var i = 0; i < 7; i++){
+  var factors = ['economy', 'family', 'health', 'freedom', 'trust', 'generosity'];
+  for (var i = 0; i < 6; i++){
     var name = factors[i];
     factors[name] = regAvg(reg, factors[i]);
   }
