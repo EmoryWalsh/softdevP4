@@ -104,14 +104,14 @@ graphFactor = function(e){
     .attr("cx", 200)
     .attr("cy", 200)
     .attr("fill", "none")
-    .attr("stroke", "white")
+    .attr("stroke", "black")
     .attr("r", radialScale(t))
   );
   ticks.forEach(t =>
     svg.append("text")
     .attr("x", 205)
     .attr("y", 200 - radialScale(t))
-    .attr("stroke", "white")
+    .attr("stroke", "black")
     .text(t.toString())
   );
   //console.log(myFac);
@@ -178,14 +178,14 @@ graphRegion = function(e){
     .attr("cx", 200)
     .attr("cy", 200)
     .attr("fill", "none")
-    .attr("stroke", "white")
+    .attr("stroke", "black")
     .attr("r", radialScale(t))
   );
   ticks.forEach(t =>
     svg.append("text")
     .attr("x", 205)
     .attr("y", 200 - radialScale(t))
-    .attr("stroke", "white")
+    .attr("stroke", "black")
     .text(t.toString())
   );
   //console.log(myReg);
