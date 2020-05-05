@@ -25,10 +25,10 @@ rgData = [];
 function regData(reg){
   var factors = ['economy', 'family', 'health', 'freedom', 'trust', 'generosity', 'other'];
   for (var i = 0; i < 7; i++){
-    var point = {};
-    factors.forEach(f => point[f] = regAvg(reg,factors[i]));
-    rgData.push(point);
+    var name = factors[i];
+    factors[name] = regAvg(reg, factors[i]);
   }
+  rgData.push(factors);
   return factors;
 }
 
@@ -36,8 +36,6 @@ fcData = [];
 function facData(fac){
   var regions = ['North America', 'Western Europe', 'Australia and New Zealand', 'Middle East and Northern Africa', 'Latin America and Caribbean', 'Southeastern Asia', 'Central and Eastern Europe', 'Eastern Asia', 'Sub-Saharan Africa', 'Southern Asia'];
   for (var i = 0; i < 10; i++){
-    var point = {};
-    //console.log(regAvg(regions[i], fac));
     var name = regions[i];
     regions[name] = regAvg(regions[i], fac);
   }
@@ -50,8 +48,8 @@ var myReg;
 $('#regionDropdown + [aria-labelledby="regionDropdown"] a').on('click', function (e) {
   e.preventDefault();
   // get selected option and change background
-  myReg = this;
-  console.log(myReg.textContent);
+  myReg = this.textContent;
+  //console.log(myReg.textContent);
 })
 
 // stores factor selection
@@ -87,7 +85,7 @@ graphFactor = function(e){
     .attr("stroke", "white")
     .text(t.toString())
   );
-  console.log(myFac);
+  //console.log(myFac);
   var factors = facData(myFac);
   for (var i = 0; i < factors.length; i++) {
     let fac_name = factors[i];
@@ -135,6 +133,78 @@ graphFactor = function(e){
     }
 }
 
+graphRegion = function(e){
+  svg_container.innerHTML = ""
+  svg = d3.select("#svg_container").append("svg")
+    .attr("width", 600)
+    .attr("height", 600);
+  radialScale = d3.scaleLinear()
+    .domain([0,1.5])
+    .range([0,250]);
+  ticks = [0.3,0.6,0.9,1.2,1.5];
+  ticks.forEach(t =>
+    svg.append("circle")
+    .attr("cx", 300)
+    .attr("cy", 300)
+    .attr("fill", "none")
+    .attr("stroke", "white")
+    .attr("r", radialScale(t))
+  );
+  ticks.forEach(t =>
+    svg.append("text")
+    .attr("x", 305)
+    .attr("y", 300 - radialScale(t))
+    .attr("stroke", "white")
+    .text(t.toString())
+  );
+  //console.log(myReg);
+  var regions = regData(myReg);
+  for (var i = 0; i < regions.length; i++) {
+    let reg_name = regions[i];
+    let angle = (Math.PI / 2) + (2 * Math.PI * i / regions.length);
+    let line_coordinate = angleToCoordinate(angle, 1.5);
+    let label_coordinate = angleToCoordinate(angle, 1.7);
+
+    //draw axis line
+    svg.append("line")
+    .attr("x1", 300)
+    .attr("y1", 300)
+    .attr("x2", line_coordinate.x)
+    .attr("y2", line_coordinate.y)
+    .attr("stroke","black");
+
+    //draw axis label
+    svg.append("text")
+    .attr("x", label_coordinate.x)
+    .attr("y", label_coordinate.y)
+    .text(reg_name);
+  }
+
+    let line = d3.line()
+      .x(d => d.x)
+      .y(d => d.y);
+    let colors = ["blue", "green", "red"];
+
+    console.log(rgData);
+    for (var i = 0; i < rgData.length; i++){
+      let d = rgData[i];
+      let color = colors[i];
+      let coordinates = getPathCoordinates(d, regions);
+
+      //console.log(color);
+
+      //draw the path element
+      svg.append("path")
+        .datum(coordinates)
+        .attr("d",line)
+        .attr("stroke-width", 3)
+        .attr("stroke", color)
+        .attr("fill", color)
+        .attr("stroke-opacity", 1)
+        .attr("opacity", 0.5);
+    }
+}
+
 //maps onto polar graph / converts
 function angleToCoordinate(angle, value){
     let x = Math.cos(angle) * radialScale(value);
@@ -151,9 +221,6 @@ function getPathCoordinates(data_point, data){
         coordinates.push(angleToCoordinate(angle, data_point[fac_name]));
     }
     return coordinates;
-}
-
-graphRegion = function(e){
 }
 
 rReg.addEventListener("click",graphRegion);
