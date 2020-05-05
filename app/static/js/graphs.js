@@ -44,19 +44,23 @@ function regAvg(reg, fac){
   return total / num;
 }
 
-rgData = [];
+var rgData;
 function regData(reg){
-  var factors = ['economy', 'family', 'health', 'freedom', 'trust', 'generosity'];
-  for (var i = 0; i < 6; i++){
-    var name = factors[i];
-    factors[name] = regAvg(reg, factors[i]);
+  rgData = [];
+  for(var r = 0; r < reg.length; r++){
+    var factors = ['economy', 'family', 'health', 'freedom', 'trust', 'generosity'];
+    for (var i = 0; i < 6; i++){
+      var name = factors[i];
+      factors[name] = regAvg(reg[r], factors[i]);
+    }
+    rgData.push(factors);
   }
-  rgData.push(factors);
   return factors;
 }
 
-fcData = [];
+var fcData;
 function facData(fac){
+  fcData = [];
   var regions = ['North America', 'Western Europe', 'Australia and New Zealand', 'Middle East and Northern Africa', 'Latin America and Caribbean', 'Southeastern Asia', 'Central and Eastern Europe', 'Eastern Asia', 'Sub-Saharan Africa', 'Southern Asia'];
   for (var i = 0; i < 10; i++){
     var name = regions[i];
@@ -140,6 +144,7 @@ graphFactor = function(e){
     console.log(fcData);
     for (var i = 0; i < fcData.length; i++){
       let d = fcData[i];
+      console.log(d)
       let color = colors[i];
       let coordinates = getPathCoordinates(d, factors);
 
