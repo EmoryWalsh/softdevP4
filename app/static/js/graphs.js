@@ -1,8 +1,31 @@
-var rgn = document.getElementById("regionDropdown");
-var ftr = document.getElementById("factorDropdown");
 var rReg = document.getElementById("rReg");
 var rFac = document.getElementById("rFac");
 
+//finds the selected radio bubbles for the regions
+function regionRadioValues(){
+  var els = document.getElementsByName('regions');
+  //console.log(els)
+  reg = []
+  for(i = 0; i < els.length; i++){
+    if(els[i].checked)
+    reg.push(els[i].value);
+  }
+  return reg
+}
+
+//finds the selected radio bubbles for the factors
+function factorRadioValues(){
+  var els = document.getElementsByName('factor');
+  console.log(els)
+  fac = []
+  for(i = 0; i < els.length; i++){
+    if(els[i].checked){
+      fac.push(els[i].value);
+      console.log(els[i])
+    }
+  }
+  return fac
+}
 
 function regAvg(reg, fac){
   var total = 0;
@@ -44,22 +67,22 @@ function facData(fac){
 }
 
 // stores region selection
-var myReg;
+/*var myReg;
 $('#regionDropdown + [aria-labelledby="regionDropdown"] a').on('click', function (e) {
   e.preventDefault();
   // get selected option and change background
   myReg = this.textContent;
   //console.log(myReg.textContent);
-})
+})*/
 
 // stores factor selection
-var myFac;
+/*var myFac;
 $('#factorDropdown + [aria-labelledby="factorDropdown"] a').on('click', function (e) {
   e.preventDefault();
   // get selected option and change background
   myFac = this.textContent;
   //console.log(myFac.textContent);
-})
+})*/
 
 graphFactor = function(e){
   svg1.innerHTML = ""
@@ -86,6 +109,7 @@ graphFactor = function(e){
     .text(t.toString())
   );
   //console.log(myFac);
+  myFac = factorRadioValues();
   var factors = facData(myFac);
   for (var i = 0; i < factors.length; i++) {
     let fac_name = factors[i];
@@ -158,6 +182,7 @@ graphRegion = function(e){
     .text(t.toString())
   );
   //console.log(myReg);
+  myReg = regionRadioValues();
   var regions = regData(myReg);
   for (var i = 0; i < regions.length; i++) {
     let reg_name = regions[i];
