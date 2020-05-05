@@ -1,7 +1,7 @@
 var rgn = document.getElementById("regionDropdown");
 var ftr = document.getElementById("factorDropdown");
-//var rReg = document.getElementById("rReg");
-//var rFac = document.getElementById("fFac");
+var rReg = document.getElementById("rReg");
+var rFac = document.getElementById("rFac");
 
 
 function regAvg(reg, fac){
