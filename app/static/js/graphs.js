@@ -62,26 +62,26 @@ $('#factorDropdown + [aria-labelledby="factorDropdown"] a').on('click', function
 })
 
 graphFactor = function(e){
-  svg_container.innerHTML = ""
-  svg = d3.select("#svg_container").append("svg")
-    .attr("width", 600)
-    .attr("height", 600);
+  svg1.innerHTML = ""
+  svg = d3.select("#svg1").append("svg")
+    .attr("width", 500)
+    .attr("height", 500);
   radialScale = d3.scaleLinear()
     .domain([0,1.5])
-    .range([0,250]);
+    .range([0,200]);
   ticks = [0.3,0.6,0.9,1.2,1.5];
   ticks.forEach(t =>
     svg.append("circle")
-    .attr("cx", 300)
-    .attr("cy", 300)
+    .attr("cx", 200)
+    .attr("cy", 200)
     .attr("fill", "none")
     .attr("stroke", "white")
     .attr("r", radialScale(t))
   );
   ticks.forEach(t =>
     svg.append("text")
-    .attr("x", 305)
-    .attr("y", 300 - radialScale(t))
+    .attr("x", 205)
+    .attr("y", 200 - radialScale(t))
     .attr("stroke", "white")
     .text(t.toString())
   );
@@ -95,8 +95,8 @@ graphFactor = function(e){
 
     //draw axis line
     svg.append("line")
-    .attr("x1", 300)
-    .attr("y1", 300)
+    .attr("x1", 200)
+    .attr("y1", 200)
     .attr("x2", line_coordinate.x)
     .attr("y2", line_coordinate.y)
     .attr("stroke","black");
@@ -134,26 +134,26 @@ graphFactor = function(e){
 }
 
 graphRegion = function(e){
-  svg_container.innerHTML = ""
-  svg = d3.select("#svg_container").append("svg")
-    .attr("width", 600)
-    .attr("height", 600);
+  svg2.innerHTML = ""
+  svg = d3.select("#svg2").append("svg")
+    .attr("width", 500)
+    .attr("height", 500);
   radialScale = d3.scaleLinear()
     .domain([0,1.5])
-    .range([0,250]);
+    .range([0,200]);
   ticks = [0.3,0.6,0.9,1.2,1.5];
   ticks.forEach(t =>
     svg.append("circle")
-    .attr("cx", 300)
-    .attr("cy", 300)
+    .attr("cx", 200)
+    .attr("cy", 200)
     .attr("fill", "none")
     .attr("stroke", "white")
     .attr("r", radialScale(t))
   );
   ticks.forEach(t =>
     svg.append("text")
-    .attr("x", 305)
-    .attr("y", 300 - radialScale(t))
+    .attr("x", 205)
+    .attr("y", 200 - radialScale(t))
     .attr("stroke", "white")
     .text(t.toString())
   );
@@ -167,8 +167,8 @@ graphRegion = function(e){
 
     //draw axis line
     svg.append("line")
-    .attr("x1", 300)
-    .attr("y1", 300)
+    .attr("x1", 200)
+    .attr("y1", 200)
     .attr("x2", line_coordinate.x)
     .attr("y2", line_coordinate.y)
     .attr("stroke","black");
@@ -209,7 +209,7 @@ graphRegion = function(e){
 function angleToCoordinate(angle, value){
     let x = Math.cos(angle) * radialScale(value);
     let y = Math.sin(angle) * radialScale(value);
-    return {"x": 300 + x, "y": 300 - y};
+    return {"x": 200 + x, "y": 200 - y};
 }
 
 //calculates coordinates of each data point
