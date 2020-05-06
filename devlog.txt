@@ -73,3 +73,8 @@ nicholS -- 2020-05-05 14:02
 - Fixed problems with data so that graphs actually plot data correctly
 - Made spider graph to display regional differences in factor performance
 - Fixed html to accommodate two graphs
+- Made dropdown and render buttons in html for bar graphs
+
+nicholS -- 2020-05-06 15:32
+- Reconfigured data inputs from dropdown into an array to use for the bar graphs
+- Made bar graphs for regions and factors
