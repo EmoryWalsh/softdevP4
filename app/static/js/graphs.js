@@ -81,10 +81,11 @@ $('#rDrop + [aria-labelledby="rDrop"] a').on('click', function (e) {
   barRegData = [];
   var factors = ['economy', 'family', 'health', 'freedom', 'trust', 'generosity'];
   for (var i = 0; i < 6; i++){
-    var name = factors[i];
-    factors[name] = regAvg(myReg, factors[i]);
+    var sub = {};
+    sub["factor"] = factors[i];
+    sub["score"] = regAvg(myReg, factors[i]);
+    barRegData.push(sub);
   }
-  barRegData.push(factors);
   //console.log(barRegData);
 })
 
@@ -97,10 +98,11 @@ $('#fDrop + [aria-labelledby="fDrop"] a').on('click', function (e) {
   barFacData = [];
   var regions = ['North America', 'Western Europe', 'Australia and New Zealand', 'Middle East and Northern Africa', 'Latin America and Caribbean', 'Southeastern Asia', 'Central and Eastern Europe', 'Eastern Asia', 'Sub-Saharan Africa', 'Southern Asia'];
   for (var i = 0; i < 10; i++){
-    var name = regions[i];
-    regions[name] = regAvg(regions[i], myFac);
+    var sub = {};
+    sub["region"] = regions[i];
+    sub["score"] = regAvg(regions[i], myFac);
+    barFacData.push(sub);
   }
-  barFacData.push(regions);
   //console.log(barFacData);
 })
 
@@ -293,11 +295,9 @@ facBarGraph = function(e){
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
 
-  //get data
-
     // Scale the range of the data in the domains
-    //x.domain(data.map(function(d) { return d.salesperson; }));
-    //y.domain([0, d3.max(data, function(d) { return d.sales; })]);
+    x.domain(barFacData.map(function(d) { return d.region; }));
+    y.domain([0, d3.max(barFacData, function(d) { return d.score; })]);
 
     // append the rectangles for the bar chart
     console.log(barFacData)
@@ -305,15 +305,10 @@ facBarGraph = function(e){
         .data(barFacData)
       .enter().append("rect")
         .attr("class", "bar")
-        .attr("x", function(d) { return x(barFacData[d]); })
+        .attr("x", d => x(d.region))
         .attr("width", x.bandwidth())
-        .attr("y", function(d) {
-          var name = barFacData[d];
-          //console.log(name);
-          return y(barFacData[name]); })
-        /*.attr("height", function(d) {
-          var name = barFacData[d];
-          return height - y(barFacData[name]); });*/
+        .attr("y", d => y(d.score))
+        .attr("height", d => height - y(d.score));
 
     // add the x Axis
     svg.append("g")
@@ -325,7 +320,54 @@ facBarGraph = function(e){
         .call(d3.axisLeft(y));
 }
 
-regBarGraph = function(e){}
+regBarGraph = function(e){
+  svg4.innerHTML = ""
+  // set the dimensions and margins of the graph
+  var margin = {top: 20, right: 20, bottom: 20, left: 20},
+      width = 400,
+      height = 400;
+
+  // set the ranges
+  var x = d3.scaleBand()
+            .range([0, width])
+            .padding(0.1);
+  var y = d3.scaleLinear()
+            .range([height, 0]);
+
+  // append the svg object to the body of the page
+  // append a 'group' element to 'svg'
+  // moves the 'group' element to the top left margin
+  var svg = d3.select("#svg4").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+    // Scale the range of the data in the domains
+    x.domain(barRegData.map(function(d) { return d.factor; }));
+    y.domain([0, d3.max(barRegData, function(d) { return d.score; })]);
+
+    // append the rectangles for the bar chart
+    console.log(barRegData)
+    svg.selectAll(".bar")
+        .data(barRegData)
+      .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", d => x(d.factor))
+        .attr("width", x.bandwidth())
+        .attr("y", d => y(d.score))
+        .attr("height", d => height - y(d.score));
+
+    // add the x Axis
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+    // add the y Axis
+    svg.append("g")
+        .call(d3.axisLeft(y));
+}
 
 rReg.addEventListener("click",graphRegion);
 rFac.addEventListener("click",graphFactor);
