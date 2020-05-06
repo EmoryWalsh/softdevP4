@@ -85,7 +85,7 @@ $('#rDrop + [aria-labelledby="rDrop"] a').on('click', function (e) {
     factors[name] = regAvg(myReg, factors[i]);
   }
   barRegData.push(factors);
-  console.log(barRegData);
+  //console.log(barRegData);
 })
 
 // stores data for region selection for bar graph
@@ -101,7 +101,7 @@ $('#fDrop + [aria-labelledby="fDrop"] a').on('click', function (e) {
     regions[name] = regAvg(regions[i], myFac);
   }
   barFacData.push(regions);
-  console.log(barFacData);
+  //console.log(barFacData);
 })
 
 graphFactor = function(e){
@@ -270,6 +270,7 @@ function getPathCoordinates(data_point, data){
 }
 
 facBarGraph = function(e){
+  svg3.innerHTML = ""
   // set the dimensions and margins of the graph
   var margin = {top: 20, right: 20, bottom: 20, left: 20},
       width = 400,
@@ -299,14 +300,20 @@ facBarGraph = function(e){
     //y.domain([0, d3.max(data, function(d) { return d.sales; })]);
 
     // append the rectangles for the bar chart
+    console.log(barFacData)
     svg.selectAll(".bar")
-        .data(data)
+        .data(barFacData)
       .enter().append("rect")
         .attr("class", "bar")
-        .attr("x", function(d) { return x(d.salesperson); })
+        .attr("x", function(d) { return x(barFacData[d]); })
         .attr("width", x.bandwidth())
-        .attr("y", function(d) { return y(d.sales); })
-        .attr("height", function(d) { return height - y(d.sales); });
+        .attr("y", function(d) {
+          var name = barFacData[d];
+          //console.log(name);
+          return y(barFacData[name]); })
+        /*.attr("height", function(d) {
+          var name = barFacData[d];
+          return height - y(barFacData[name]); });*/
 
     // add the x Axis
     svg.append("g")
