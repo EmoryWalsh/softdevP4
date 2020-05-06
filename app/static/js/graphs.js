@@ -72,18 +72,36 @@ function facData(fac){
   return regions;
 }
 
-// stores region selection for bar graph
+// stores data for region selection for bar graph
 var myReg;
+var barRegData;
 $('#rDrop + [aria-labelledby="rDrop"] a').on('click', function (e) {
   e.preventDefault();
   myReg = this.textContent;
+  barRegData = [];
+  var factors = ['economy', 'family', 'health', 'freedom', 'trust', 'generosity'];
+  for (var i = 0; i < 6; i++){
+    var name = factors[i];
+    factors[name] = regAvg(myReg, factors[i]);
+  }
+  barRegData.push(factors);
+  console.log(barRegData);
 })
 
-//stores factor selection for bar graph
+// stores data for region selection for bar graph
 var myFac;
+var barFacData;
 $('#fDrop + [aria-labelledby="fDrop"] a').on('click', function (e) {
   e.preventDefault();
   myFac = this.textContent;
+  barFacData = [];
+  var regions = ['North America', 'Western Europe', 'Australia and New Zealand', 'Middle East and Northern Africa', 'Latin America and Caribbean', 'Southeastern Asia', 'Central and Eastern Europe', 'Eastern Asia', 'Sub-Saharan Africa', 'Southern Asia'];
+  for (var i = 0; i < 10; i++){
+    var name = regions[i];
+    regions[name] = regAvg(regions[i], myFac);
+  }
+  barFacData.push(regions);
+  console.log(barFacData);
 })
 
 graphFactor = function(e){
@@ -299,6 +317,8 @@ facBarGraph = function(e){
     svg.append("g")
         .call(d3.axisLeft(y));
 }
+
+regBarGraph = function(e){}
 
 rReg.addEventListener("click",graphRegion);
 rFac.addEventListener("click",graphFactor);
