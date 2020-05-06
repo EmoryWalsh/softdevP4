@@ -302,12 +302,14 @@ facBarGraph = function(e){
     // append the rectangles for the bar chart
     svg.selectAll(".bar")
         .data(barFacData)
+      console.log(barFacData)
       .enter().append("rect")
         .attr("class", "bar")
         .attr("x", function(d) { return x(barFacData[d]); })
         .attr("width", x.bandwidth())
         .attr("y", function(d) {
           var name = barFacData[d];
+          console.log(name);
           return y(barFacData[name]); })
         /*.attr("height", function(d) {
           var name = barFacData[d];
