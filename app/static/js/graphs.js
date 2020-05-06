@@ -72,23 +72,19 @@ function facData(fac){
   return regions;
 }
 
-// stores region selection
-/*var myReg;
-$('#regionDropdown + [aria-labelledby="regionDropdown"] a').on('click', function (e) {
+// stores region selection for bar graph
+var myReg;
+$('#rDrop + [aria-labelledby="rDrop"] a').on('click', function (e) {
   e.preventDefault();
-  // get selected option and change background
   myReg = this.textContent;
-  //console.log(myReg.textContent);
-})*/
+})
 
-// stores factor selection
-/*var myFac;
-$('#factorDropdown + [aria-labelledby="factorDropdown"] a').on('click', function (e) {
+//stores factor selection for bar graph
+var myFac;
+$('#fDrop + [aria-labelledby="fDrop"] a').on('click', function (e) {
   e.preventDefault();
-  // get selected option and change background
   myFac = this.textContent;
-  //console.log(myFac.textContent);
-})*/
+})
 
 graphFactor = function(e){
   svg1.innerHTML = ""
@@ -255,7 +251,7 @@ function getPathCoordinates(data_point, data){
     return coordinates;
 }
 
-factorBar = function(e){
+facBarGraph = function(e){
   // set the dimensions and margins of the graph
   var margin = {top: 20, right: 20, bottom: 20, left: 20},
       width = 400,
@@ -306,3 +302,5 @@ factorBar = function(e){
 
 rReg.addEventListener("click",graphRegion);
 rFac.addEventListener("click",graphFactor);
+rRegDrop.addEventListener("click",regBarGraph);
+rFacDrop.addEventListener("click",facBarGraph);
