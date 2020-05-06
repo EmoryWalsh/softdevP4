@@ -16,7 +16,7 @@ def map():
 @app.route('/nation/<country>')
 def stats(country):
 	if (ops.isCountry(country)):
-		return render_template("country.html",name=country,stats=ops.countryDict(country))
+		return render_template("country.html",name=country,stats=ops.countryDict(country),ranks=ops.ranks(country),num=ops.numCountries())
 	return "No Such Country"
 
 @app.route('/graphs')
