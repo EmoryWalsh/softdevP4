@@ -52,7 +52,7 @@ nicholS -- 2020-05-01 16:12
 - Fixed function to find average for a region
 
 nicholS -- 2020-05-04 14:32
-- Fixed JQuery to access factor / region selection
+- Fixed code to access factor / region selection
 - Made functions to configure data for regional averages / averages by factor
 - Made progress with making spider graph o display regional differences in performance for each factor
 - Made graph, but data won't plot on graph
@@ -67,4 +67,9 @@ benjaminA -- 2020-05-04 15:00
 
 walshE -- 2020-05-05 16:38
 - Made graphs easier to use with radio buttons
-- Now able to select multple factors to plot
+- Now able to select multiple factors to plot
+
+nicholS -- 2020-05-05 14:02
+- Fixed problems with data so that graphs actually plot data correctly
+- Made spider graph to display regional differences in factor performance
+- Fixed html to accommodate two graphs

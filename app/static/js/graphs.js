@@ -141,7 +141,7 @@ graphFactor = function(e){
     let line = d3.line()
       .x(d => d.x)
       .y(d => d.y);
-    let colors = ["blue", "green", "red"];
+    let colors = ["blue", "green", "red", "yellow", "pink", "purple", "orange", "gray", "light blue", "light green"];
 
     console.log(fcData);
     for (var i = 0; i < fcData.length; i++){
@@ -215,7 +215,7 @@ graphRegion = function(e){
     let line = d3.line()
       .x(d => d.x)
       .y(d => d.y);
-    let colors = ["blue", "green", "red"];
+    let colors = ["blue", "green", "red", "yellow", "pink", "purple"];
 
     console.log(rgData);
     for (var i = 0; i < rgData.length; i++){
