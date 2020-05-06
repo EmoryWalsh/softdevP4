@@ -85,7 +85,7 @@ $('#rDrop + [aria-labelledby="rDrop"] a').on('click', function (e) {
     factors[name] = regAvg(myReg, factors[i]);
   }
   barRegData.push(factors);
-  console.log(barRegData);
+  //console.log(barRegData);
 })
 
 // stores data for region selection for bar graph
@@ -101,7 +101,7 @@ $('#fDrop + [aria-labelledby="fDrop"] a').on('click', function (e) {
     regions[name] = regAvg(regions[i], myFac);
   }
   barFacData.push(regions);
-  console.log(barFacData);
+  //console.log(barFacData);
 })
 
 graphFactor = function(e){
@@ -300,16 +300,16 @@ facBarGraph = function(e){
     //y.domain([0, d3.max(data, function(d) { return d.sales; })]);
 
     // append the rectangles for the bar chart
+    console.log(barFacData)
     svg.selectAll(".bar")
         .data(barFacData)
-      console.log(barFacData)
       .enter().append("rect")
         .attr("class", "bar")
         .attr("x", function(d) { return x(barFacData[d]); })
         .attr("width", x.bandwidth())
         .attr("y", function(d) {
           var name = barFacData[d];
-          console.log(name);
+          //console.log(name);
           return y(barFacData[name]); })
         /*.attr("height", function(d) {
           var name = barFacData[d];
