@@ -8,16 +8,22 @@
 {% block pgtitle %}Happiness Breakdown for {{name}}{% endblock %}
 
 {% block content %}
+		<svg width="0" height="0" id="chart"></svg>
 		{% for i in stats %}
-			<center><h3>{{i}} : {{stats[i]}}</h3>
+			<p id={{i}}>{{i}} : {{stats[i]}}
 			{% if i in ranks %}
-				({{ranks[i]}}th out of {{num}} countries)</center>
+				({{ranks[i]}}th out of {{num}} countries)
 			{% endif %}
-			<br>
+			</p>
 		{% endfor %}
 {% endblock %}
 
 {% block script %}
+		<script>
+			var lis = {{ld|tojson}}
+			var name = {{name|tojson}}
+		</script> 
 		<script src="https://unpkg.com/topojson-client@3"></script>
 		<script src="http://d3js.org/d3.v5.min.js"></script>
+		<script src="/../static/js/country.js"></script>
 {% endblock %}

@@ -54,3 +54,14 @@ def ranks(name):
 
 def numCountries():
 	return num
+
+def list_dict():
+	ans = [{},{},{},{},{},{},{},{}]
+	for c in nscountries:
+		if c != "Country":
+			ran = ranks(c)
+			count = 0
+			for r in ran:
+				ans[count][c] = nscountries[c][r]
+				count = count+1
+	return ans
