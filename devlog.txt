@@ -75,6 +75,17 @@ nicholS -- 2020-05-05 14:02
 - Fixed html to accommodate two graphs
 - Made dropdown and render buttons in html for bar graphs
 
+benjaminA -- 2020-05-06 14:50
+- Gave each country their rank in each statistic
+- Counted total number of countries
+- Adjusted some data-gathering methods to give relative ranks
+
 nicholS -- 2020-05-06 15:32
 - Reconfigured data inputs from dropdown into an array to use for the bar graphs
 - Made bar graphs for regions and factors
+
+benjaminA -- 2020-05-07 18:35
+- Made each of the scores/ranks on each country page clickable
+- When clicked, created a bar chart showing all countries in that statistic
+- Country on page shown in yellow
+- When clicked again, bar chart (and space surrounding) disappears
