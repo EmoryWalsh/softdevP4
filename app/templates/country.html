@@ -5,11 +5,13 @@
 {% block style %}
 {% endblock %}
 
+{% block pgtitle %}Happiness Breakdown for {{name}}{% endblock %}
+
 {% block content %}
 		{% for i in stats %}
-			{{i}} : {{stats[i]}}
+			<center><h3>{{i}} : {{stats[i]}}</h3>
 			{% if i in ranks %}
-				({{ranks[i]}}th out of {{num}} countries)
+				({{ranks[i]}}th out of {{num}} countries)</center>
 			{% endif %}
 			<br>
 		{% endfor %}
