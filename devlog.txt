@@ -89,3 +89,7 @@ benjaminA -- 2020-05-07 18:35
 - When clicked, created a bar chart showing all countries in that statistic
 - Country on page shown in yellow
 - When clicked again, bar chart (and space surrounding) disappears
+
+walshE -- 2020-05-08 8:17
+- Fixed x-axis labels on both sets of bar charts to have vertical labeling
+- Made a key for the spider plots and static coloring system
