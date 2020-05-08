@@ -191,18 +191,18 @@ graphRegion = function(e){
   ticks = [0.3,0.6,0.9,1.2,1.5];
   ticks.forEach(t =>
     svg.append("circle")
-    .attr("cx", 200)
-    .attr("cy", 200)
-    .attr("fill", "none")
-    .attr("stroke", "black")
-    .attr("r", radialScale(t))
+      .attr("cx", 200)
+      .attr("cy", 200)
+      .attr("fill", "none")
+      .attr("stroke", "black")
+      .attr("r", radialScale(t))
   );
   ticks.forEach(t =>
     svg.append("text")
-    .attr("x", 205)
-    .attr("y", 200 - radialScale(t))
-    .attr("stroke", "black")
-    .text(t.toString())
+      .attr("x", 205)
+      .attr("y", 200 - radialScale(t))
+      .attr("stroke", "black")
+      .text(t.toString())
   );
   //console.log(myReg);
   myReg = regionRadioValues();
@@ -226,6 +226,7 @@ graphRegion = function(e){
     .attr("x", label_coordinate.x)
     .attr("y", label_coordinate.y)
     .text(reg_name);
+
   }
 
     let line = d3.line()
@@ -274,9 +275,9 @@ function getPathCoordinates(data_point, data){
 facBarGraph = function(e){
   svg3.innerHTML = ""
   // set the dimensions and margins of the graph
-  var margin = {top: 20, right: 20, bottom: 20, left: 20},
+  var margin = {top: 20, right: 20, bottom: 150, left: 20},
       width = 400,
-      height = 400;
+      height = 500;
 
   // set the ranges
   var x = d3.scaleBand()
@@ -313,7 +314,10 @@ facBarGraph = function(e){
     // add the x Axis
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+          .attr("transform", "translate(15,5)rotate(90)")
+          .style("text-anchor", "start")
 
     // add the y Axis
     svg.append("g")
@@ -323,7 +327,7 @@ facBarGraph = function(e){
 regBarGraph = function(e){
   svg4.innerHTML = ""
   // set the dimensions and margins of the graph
-  var margin = {top: 20, right: 20, bottom: 20, left: 20},
+  var margin = {top: 20, right: 20, bottom: 120, left: 20},
       width = 400,
       height = 400;
 
@@ -362,7 +366,10 @@ regBarGraph = function(e){
     // add the x Axis
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+          .attr("transform", "translate(15,5)rotate(90)")
+          .style("text-anchor", "start")
 
     // add the y Axis
     svg.append("g")
