@@ -10,19 +10,20 @@
 {% block content %}
 		<svg width="0" height="0" id="chart"></svg>
 		{% for i in stats %}
-			<p id={{i}}>{{i}} : {{stats[i]}}
+			<p style="padding-left:30px;" id={{i}}><b>{{i}}</b> : {{stats[i]}}
 			{% if i in ranks %}
 				({{ranks[i]}}th out of {{num}} countries)
 			{% endif %}
 			</p>
 		{% endfor %}
+		<br>
 {% endblock %}
 
 {% block script %}
 		<script>
 			var lis = {{ld|tojson}}
 			var name = {{name|tojson}}
-		</script> 
+		</script>
 		<script src="https://unpkg.com/topojson-client@3"></script>
 		<script src="http://d3js.org/d3.v5.min.js"></script>
 		<script src="/../static/js/country.js"></script>
