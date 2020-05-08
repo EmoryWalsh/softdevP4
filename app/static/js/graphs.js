@@ -301,7 +301,7 @@ function getPathCoordinates(data_point, data){
 facBarGraph = function(e){
   svg3.innerHTML = ""
   // set the dimensions and margins of the graph
-  var margin = {top: 20, right: 20, bottom: 150, left: 20},
+  var margin = {top: 20, right: 20, bottom: 250, left: 20},
       width = 400,
       height = 500;
 
@@ -344,6 +344,7 @@ facBarGraph = function(e){
         .selectAll("text")
           .attr("transform", "translate(15,5)rotate(90)")
           .style("text-anchor", "start")
+          .attr("font-size", "16px")
 
     // add the y Axis
     svg.append("g")
@@ -394,8 +395,9 @@ regBarGraph = function(e){
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
         .selectAll("text")
-          .attr("transform", "translate(15,5)rotate(90)")
+          .attr("transform", "translate(15,7)rotate(90)")
           .style("text-anchor", "start")
+          .attr("font-size", "18px")
 
     // add the y Axis
     svg.append("g")
