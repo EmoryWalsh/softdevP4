@@ -1,6 +1,28 @@
 var rReg = document.getElementById("rReg");
 var rFac = document.getElementById("rFac");
 
+var rColor = {
+  'North America' : 'green',
+  'Western Europe' : 'blue',
+  'Australia and New Zealand' : 'red',
+  'Middle East and Northern Africa' : 'yellow',
+  'Latin America and Caribbean' : 'purple',
+  'Southeastern Asia' : 'pink',
+  'Central and Eastern Europe' : 'lightgreen',
+  'Eastern Asia' : 'steelblue',
+  'Sub-Saharan Africa' : 'orange',
+  'Southern Asia' : 'gray'
+};
+
+var fColor = {
+  'economy' : 'red',
+  'family' : 'yellow',
+  'health' : 'purple',
+  'freedom' : 'blue',
+  'trust' : 'green',
+  'generosity' : 'orange'
+}
+
 //finds the selected radio bubbles for the regions
 function regionRadioValues(){
   var els = document.getElementsByName('regions');
@@ -133,25 +155,27 @@ graphFactor = function(e){
   //console.log(myFac);
   myFac = factorRadioValues();
   var factors = facData(myFac);
-  for (var i = 0; i < factors.length; i++) {
-    let fac_name = factors[i];
-    let angle = (Math.PI / 2) + (2 * Math.PI * i / factors.length);
-    let line_coordinate = angleToCoordinate(angle, 1.5);
-    let label_coordinate = angleToCoordinate(angle, 1.7);
+  if(factors){
+    for (var i = 0; i < factors.length; i++) {
+      let fac_name = factors[i];
+      let angle = (Math.PI / 2) + (2 * Math.PI * i / factors.length);
+      let line_coordinate = angleToCoordinate(angle, 1.5);
+      let label_coordinate = angleToCoordinate(angle, 1.7);
 
-    //draw axis line
-    svg.append("line")
-    .attr("x1", 200)
-    .attr("y1", 200)
-    .attr("x2", line_coordinate.x)
-    .attr("y2", line_coordinate.y)
-    .attr("stroke","black");
+      //draw axis line
+      svg.append("line")
+      .attr("x1", 200)
+      .attr("y1", 200)
+      .attr("x2", line_coordinate.x)
+      .attr("y2", line_coordinate.y)
+      .attr("stroke","black");
 
-    //draw axis label
-    svg.append("text")
-    .attr("x", label_coordinate.x)
-    .attr("y", label_coordinate.y)
-    .text(fac_name);
+      //draw axis label
+      svg.append("text")
+      .attr("x", label_coordinate.x)
+      .attr("y", label_coordinate.y)
+      .text(fac_name);
+    }
   }
 
     let line = d3.line()
@@ -176,7 +200,7 @@ graphFactor = function(e){
         .attr("stroke", color)
         .attr("fill", color)
         .attr("stroke-opacity", 1)
-        .attr("opacity", 0.5);
+        .attr("opacity", 0.7);
     }
 }
 
@@ -207,37 +231,39 @@ graphRegion = function(e){
   //console.log(myReg);
   myReg = regionRadioValues();
   var regions = regData(myReg);
-  for (var i = 0; i < regions.length; i++) {
-    let reg_name = regions[i];
-    let angle = (Math.PI / 2) + (2 * Math.PI * i / regions.length);
-    let line_coordinate = angleToCoordinate(angle, 1.5);
-    let label_coordinate = angleToCoordinate(angle, 1.7);
+  if(regions){
+    for (var i = 0; i < regions.length; i++) {
+      let reg_name = regions[i];
+      let angle = (Math.PI / 2) + (2 * Math.PI * i / regions.length);
+      let line_coordinate = angleToCoordinate(angle, 1.5);
+      let label_coordinate = angleToCoordinate(angle, 1.7);
 
-    //draw axis line
-    svg.append("line")
-    .attr("x1", 200)
-    .attr("y1", 200)
-    .attr("x2", line_coordinate.x)
-    .attr("y2", line_coordinate.y)
-    .attr("stroke","black");
+      //draw axis line
+      svg.append("line")
+      .attr("x1", 200)
+      .attr("y1", 200)
+      .attr("x2", line_coordinate.x)
+      .attr("y2", line_coordinate.y)
+      .attr("stroke","black");
 
-    //draw axis label
-    svg.append("text")
-    .attr("x", label_coordinate.x)
-    .attr("y", label_coordinate.y)
-    .text(reg_name);
-
+      //draw axis label
+      svg.append("text")
+      .attr("x", label_coordinate.x)
+      .attr("y", label_coordinate.y)
+      .text(reg_name);
+    }
   }
 
     let line = d3.line()
       .x(d => d.x)
       .y(d => d.y);
-    let colors = ["blue", "green", "red", "yellow", "pink", "purple"];
+    //let colors = ["blue", "green", "red", "yellow", "pink", "purple"];
 
-    console.log(rgData);
+    //console.log(rgData);
     for (var i = 0; i < rgData.length; i++){
       let d = rgData[i];
-      let color = colors[i];
+      //console.log(rColor[myReg[i]])
+      let color = rColor[myReg[i]];
       let coordinates = getPathCoordinates(d, regions);
 
       //console.log(color);
@@ -250,7 +276,7 @@ graphRegion = function(e){
         .attr("stroke", color)
         .attr("fill", color)
         .attr("stroke-opacity", 1)
-        .attr("opacity", 0.5);
+        .attr("opacity", 0.7);
     }
 }
 
@@ -353,7 +379,7 @@ regBarGraph = function(e){
     y.domain([0, d3.max(barRegData, function(d) { return d.score; })]);
 
     // append the rectangles for the bar chart
-    console.log(barRegData)
+    //console.log(barRegData)
     svg.selectAll(".bar")
         .data(barRegData)
       .enter().append("rect")
@@ -361,7 +387,7 @@ regBarGraph = function(e){
         .attr("x", d => x(d.factor))
         .attr("width", x.bandwidth())
         .attr("y", d => y(d.score))
-        .attr("height", d => height - y(d.score));
+        .attr("height", d => height - y(d.score))
 
     // add the x Axis
     svg.append("g")
