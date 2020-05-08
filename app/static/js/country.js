@@ -15,7 +15,7 @@ var render = function(e) {
         var svg = d3.select("svg");
         svg.attr("width",1500);
         svg.attr("height",500);
-        
+
         margin = 200;
         width = svg.attr("width") - margin;
         height = svg.attr("height") - margin;
@@ -41,7 +41,11 @@ var render = function(e) {
 
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
-         .call(d3.axisBottom(xScale));
+         .call(d3.axisBottom(xScale))
+         .selectAll("text")
+            .attr("transform", "translate(15,5)rotate(90)")
+            .style("text-anchor", "start")
+
 
         g.append("g")
          .call(d3.axisLeft(yScale).tickFormat(function(d){
