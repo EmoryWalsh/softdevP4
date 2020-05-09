@@ -23,94 +23,86 @@
 				<button type="button" id="barGraph" class="btn btn-secondary">Bar Graph</button>
   			<button type="button" id="spiderPlot" class="btn btn-secondary">Spider Plot</button>
 			</div>
-			<div class="col">
-				<div class="row">
-					<div id="facSpider" style="display:none;>
-						<form id="fSpiderChoice">
-						  <input type="checkbox" id="economy" name="factor" value="economy">
-						  <label for="economy" style="background-color:red;">economy</label><br>
-							<input type="checkbox" id="family" name="factor" value="family">
-						  <label for="family" style="background-color:yellow;">family</label><br>
-							<input type="checkbox" id="health" name="factor" value="health">
-						  <label for="health" style="background-color:purple;">health</label><br>
-							<input type="checkbox" id="freedom" name="factor" value="freedom">
-						  <label for="freedom" style="background-color:blue;">freedom</label><br>
-							<input type="checkbox" id="trust" name="factor" value="trust">
-							 <label for="trust" style="background-color:green;">trust</label><br>
-							<input type="checkbox" id="generosity" name="factor" value="generosity">
-						  <label for="generosity" style="background-color:orange;">generosity</label><br>
-						</form>
-						<button id="rFac">Render Factor</button>
-					</div>
-					<div id="regSpider" style="display:none;>
-						<form id="rSpiderChoice">
-						  <input type="checkbox" id="North America" name="regions" value="North America">
-						  <label for="North America" style="background-color:green;">North America</label><br>
-							<input type="checkbox" id="Western Europe" name="regions" value="Western Europe">
-						  <label for="Western Europe" style="background-color:blue;">Western Europe</label><br>
-							<input type="checkbox" id="Australia and New Zealand" name="regions" value="Australia and New Zealand">
-						  <label for="Australia and New Zealand" style="background-color:red;">Australia and New Zealand</label><br>
-							<input type="checkbox" id="Middle East and Northern Africa" name="regions" value="Middle East and Northern Africa">
-						  <label for="Middle East and Northern Africa" style="background-color:yellow;">Middle East and Northern Africa</label><br>
-							<input type="checkbox" id="Latin America and Caribbean" name="regions" value="Latin America and Caribbean">
-						  <label for="Latin America and Caribbean" style="background-color:purple;">Latin America and Caribbean</label><br>
-							<input type="checkbox" id="Southeastern Asia" name="regions" value="Southeastern Asia">
-						  <label for="Southeastern Asia" style="background-color:pink;">Southeastern Asia</label><br>
-							<input type="checkbox" id="Central and Eastern Europe" name="regions" value="Central and Eastern Europe">
-						  <label for="Central and Eastern Europe" style="background-color:lightgreen;">Central and Eastern Europe</label><br>
-							<input type="checkbox" id="Eastern Asia" name="regions" value="Eastern Asia">
-						  <label for="Eastern Asia" style="background-color:lightblue;">Eastern Asia</label><br>
-							<input type="checkbox" id="Sub-Saharan Africa" name="regions" value="Sub-Saharan Africa">
-						  <label for="Sub-Saharan Africa" style="background-color:orange;">Sub-Saharan Africa</label><br>
-							<input type="checkbox" id="Southern Asia" name="regions" value="Southern Asia">
-						  <label for="Southern Asia" style="background-color:gray;">Southern Asia</label><br>
-						</form>
-						<button id="rReg">Render Region</button>
-					</div>
-					<div id="facBar" style="display:none;">
-						<div class="btn-group" role="group" aria-label="fDrop">
-							<div class="dropdown" class="col">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="fDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose a factor to examine:</button>
-							<div class="dropdown-menu" aria-labelledby="fDrop">
-								<a class="dropdown-header">Factors</li>
-								<a class="dropdown-item">economy</a>
-								<a class="dropdown-item">family</a>
-								<a class="dropdown-item">health</a>
-								<a class="dropdown-item">freedom</a>
-								<a class="dropdown-item">trust</a>
-								<a class="dropdown-item">generosity</a>
-								</div>
-							</div>
-							<button id="rFacDrop">Render</button>
-						</div>
-					</div>
-					<div id="regBar" style="display:none;>
-						<div class="btn-group" role="group" aria-label="rDrop">
-							<div class="dropdown">
-								<button class="btn btn-secondary dropdown-toggle" type="button" id="rDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose a region to examine:</button>
-								<div class="dropdown-menu" aria-labelledby="rDrop">
-									<a class="dropdown-header">Regions</li>
-									<a class="dropdown-item" href="">North America</a>
-									<a class="dropdown-item" href="">Western Europe</a>
-									<a class="dropdown-item" href="">Australia and New Zealand</a>
-									<a class="dropdown-item" href="">Middle East and Northern Africa</a>
-									<a class="dropdown-item" href="">Latin America and Caribbean</a>
-									<a class="dropdown-item" href="">Southeastern Asia</a>
-									<a class="dropdown-item" href="">Central and Eastern Europe</a>
-									<a class="dropdown-item" href="">Eastern Asia</a>
-									<a class="dropdown-item" href="">Sub-Saharan Africa</a>
-									<a class="dropdown-item" href="">Southern Asia</a>
-								</div>
-							</div>
-							<button id="rRegDrop">Render</button>
+				<div id="facSpider" style="display:none;>
+					<form id="fSpiderChoice">
+					  <input type="checkbox" id="economy" name="factor" value="economy">
+					  <label for="economy" style="background-color:red;">economy</label><br>
+						<input type="checkbox" id="family" name="factor" value="family">
+						 <label for="family" style="background-color:yellow;">family</label><br>
+						<input type="checkbox" id="health" name="factor" value="health">
+					  <label for="health" style="background-color:purple;">health</label><br>
+						<input type="checkbox" id="freedom" name="factor" value="freedom">
+					  <label for="freedom" style="background-color:blue;">freedom</label><br>
+						<input type="checkbox" id="trust" name="factor" value="trust">
+						 <label for="trust" style="background-color:green;">trust</label><br>
+						<input type="checkbox" id="generosity" name="factor" value="generosity">
+					  <label for="generosity" style="background-color:orange;">generosity</label><br>
+					</form>
+					<button id="rFac">Render Factor</button>
+				</div>
+				<div id="regSpider" style="display:none;>
+					<form id="rSpiderChoice">
+					  <input type="checkbox" id="North America" name="regions" value="North America">
+					  <label for="North America" style="background-color:green;">North America</label><br>
+						<input type="checkbox" id="Western Europe" name="regions" value="Western Europe">
+					  <label for="Western Europe" style="background-color:blue;">Western Europe</label><br>
+						<input type="checkbox" id="Australia and New Zealand" name="regions" value="Australia and New Zealand">
+						<label for="Australia and New Zealand" style="background-color:red;">Australia and New Zealand</label><br>
+						<input type="checkbox" id="Middle East and Northern Africa" name="regions" value="Middle East and Northern Africa">
+					  <label for="Middle East and Northern Africa" style="background-color:yellow;">Middle East and Northern Africa</label><br>
+						<input type="checkbox" id="Latin America and Caribbean" name="regions" value="Latin America and Caribbean">
+					  <label for="Latin America and Caribbean" style="background-color:purple;">Latin America and Caribbean</label><br>
+						<input type="checkbox" id="Southeastern Asia" name="regions" value="Southeastern Asia">
+					  <label for="Southeastern Asia" style="background-color:pink;">Southeastern Asia</label><br>
+						<input type="checkbox" id="Central and Eastern Europe" name="regions" value="Central and Eastern Europe">
+						<label for="Central and Eastern Europe" style="background-color:lightgreen;">Central and Eastern Europe</label><br>
+						<input type="checkbox" id="Eastern Asia" name="regions" value="Eastern Asia">
+					  <label for="Eastern Asia" style="background-color:lightblue;">Eastern Asia</label><br>
+						<input type="checkbox" id="Sub-Saharan Africa" name="regions" value="Sub-Saharan Africa">
+					  <label for="Sub-Saharan Africa" style="background-color:orange;">Sub-Saharan Africa</label><br>
+						<input type="checkbox" id="Southern Asia" name="regions" value="Southern Asia">
+					  <label for="Southern Asia" style="background-color:gray;">Southern Asia</label><br>
+					</form>
+					<button id="rReg">Render Region</button>
+				</div>
+				<div id="facBar" style="display:none;">
+					<div class="btn-group" role="group" aria-label="fDrop">
+						<div class="dropdown" class="col">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="fDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose a factor to examine:</button>
+						<div class="dropdown-menu" aria-labelledby="fDrop">
+							<a class="dropdown-header">Factors</li>
+							<a class="dropdown-item">economy</a>
+							<a class="dropdown-item">family</a>
+							<a class="dropdown-item">health</a>
+							<a class="dropdown-item">freedom</a>
+							<a class="dropdown-item">trust</a>
+							<a class="dropdown-item">generosity</a>
 						</div>
 					</div>
 				</div>
-				<div class="col">
-					<div class="row">
-						<div id="svg_container" style="padding:20px;"></div>
+				<button id="rFacDrop">Render</button>
+			</div>
+			<div id="regBar" style="display:none;>
+				<div class="btn-group" role="group" aria-label="rDrop">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="rDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose a region to examine:</button>
+						<div class="dropdown-menu" aria-labelledby="rDrop">
+							<a class="dropdown-header">Regions</li>
+							<a class="dropdown-item" href="">North America</a>
+							<a class="dropdown-item" href="">Western Europe</a>
+							<a class="dropdown-item" href="">Australia and New Zealand</a>
+							<a class="dropdown-item" href="">Middle East and Northern Africa</a>
+							<a class="dropdown-item" href="">Latin America and Caribbean</a>
+							<a class="dropdown-item" href="">Southeastern Asia</a>
+							<a class="dropdown-item" href="">Central and Eastern Europe</a>
+							<a class="dropdown-item" href="">Eastern Asia</a>
+							<a class="dropdown-item" href="">Sub-Saharan Africa</a>
+							<a class="dropdown-item" href="">Southern Asia</a>
+						</div>
 					</div>
+					<button id="rRegDrop">Render</button>
 				</div>
+				<div id="svg_container" style="padding:20px;"></div>
 			</div>
 		<br><br>
 {% endblock %}

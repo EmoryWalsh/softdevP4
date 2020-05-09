@@ -212,24 +212,24 @@ $('#fDrop + [aria-labelledby="fDrop"] a').on('click', function (e) {
 graphFactor = function(e){
   svg_container.innerHTML = ""
   svg = d3.select("#svg_container").append("svg")
-    .attr("width", 500)
-    .attr("height", 500);
+    .attr("width", 800)
+    .attr("height", 900);
   radialScale = d3.scaleLinear()
     .domain([0,1.5])
-    .range([0,200]);
+    .range([0,300]);
   ticks = [0.3,0.6,0.9,1.2,1.5];
   ticks.forEach(t =>
     svg.append("circle")
-    .attr("cx", 200)
-    .attr("cy", 200)
+    .attr("cx", 400)
+    .attr("cy", 400)
     .attr("fill", "none")
     .attr("stroke", "black")
     .attr("r", radialScale(t))
   );
   ticks.forEach(t =>
     svg.append("text")
-    .attr("x", 205)
-    .attr("y", 200 - radialScale(t))
+    .attr("x", 405)
+    .attr("y", 400 - radialScale(t))
     .attr("stroke", "black")
     .text(t.toString())
   );
@@ -245,8 +245,8 @@ graphFactor = function(e){
 
       //draw axis line
       svg.append("line")
-      .attr("x1", 200)
-      .attr("y1", 200)
+      .attr("x1", 400)
+      .attr("y1", 400)
       .attr("x2", line_coordinate.x)
       .attr("y2", line_coordinate.y)
       .attr("stroke","black");
@@ -262,13 +262,13 @@ graphFactor = function(e){
     let line = d3.line()
       .x(d => d.x)
       .y(d => d.y);
-    let colors = ["blue", "green", "red", "yellow", "pink", "purple", "orange", "gray", "light blue", "light green"];
+    //let colors = ["blue", "green", "red", "yellow", "pink", "purple", "orange", "gray", "light blue", "light green"];
 
     console.log(fcData);
     for (var i = 0; i < fcData.length; i++){
       let d = fcData[i];
       console.log(d)
-      let color = colors[i];
+      let color = fColor[myFac[i]];
       let coordinates = getPathCoordinates(d, factors);
 
       //console.log(color);
@@ -288,24 +288,24 @@ graphFactor = function(e){
 graphRegion = function(e){
   svg_container.innerHTML = ""
   svg = d3.select("#svg_container").append("svg")
-    .attr("width", 500)
-    .attr("height", 500);
+    .attr("width", 800)
+    .attr("height", 800);
   radialScale = d3.scaleLinear()
     .domain([0,1.5])
-    .range([0,200]);
+    .range([0,300]);
   ticks = [0.3,0.6,0.9,1.2,1.5];
   ticks.forEach(t =>
     svg.append("circle")
-      .attr("cx", 200)
-      .attr("cy", 200)
+      .attr("cx", 400)
+      .attr("cy", 400)
       .attr("fill", "none")
       .attr("stroke", "black")
       .attr("r", radialScale(t))
   );
   ticks.forEach(t =>
     svg.append("text")
-      .attr("x", 205)
-      .attr("y", 200 - radialScale(t))
+      .attr("x", 405)
+      .attr("y", 400 - radialScale(t))
       .attr("stroke", "black")
       .text(t.toString())
   );
@@ -321,8 +321,8 @@ graphRegion = function(e){
 
       //draw axis line
       svg.append("line")
-      .attr("x1", 200)
-      .attr("y1", 200)
+      .attr("x1", 400)
+      .attr("y1", 400)
       .attr("x2", line_coordinate.x)
       .attr("y2", line_coordinate.y)
       .attr("stroke","black");
@@ -365,7 +365,7 @@ graphRegion = function(e){
 function angleToCoordinate(angle, value){
     let x = Math.cos(angle) * radialScale(value);
     let y = Math.sin(angle) * radialScale(value);
-    return {"x": 200 + x, "y": 200 - y};
+    return {"x": 400 + x, "y": 400 - y};
 }
 
 //calculates coordinates of each data point
@@ -396,7 +396,7 @@ facBarGraph = function(e){
   // append the svg object to the body of the page
   // append a 'group' element to 'svg'
   // moves the 'group' element to the top left margin
-  var svg = d3.select("#svg-container").append("svg")
+  var svg = d3.select("#svg_container").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
