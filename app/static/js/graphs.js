@@ -1,3 +1,84 @@
+///When choosing a data/graph type
+
+//Data type buttons
+var regDataBtn = document.getElementById("regionalData");
+var facDataBtn = document.getElementById("factorData");
+
+//Graph type buttons
+var barGraphBtn = document.getElementById("barGraph");
+var spiderPlotBtn = document.getElementById("spiderPlot");
+
+var dataType = null;
+var graphType = null;
+
+
+function choiceClicks(btn){
+  if(btn === "regDataBtn"){
+    dataType = "region"
+  }
+  else if(btn === "facDataBtn"){
+    dataType = "factor"
+  }
+  else if(btn === "barGraphBtn"){
+    graphType = "bar"
+  }
+  else if(btn === "spiderPlotBtn"){
+    graphType = "spider"
+  }
+  //console.log(dataType)
+  //console.log(graphType)
+  if(dataType != null && graphType != null){
+    whichGraph()
+  }
+}
+
+//Show div with choices for different graphs
+function whichGraph(){
+  if(dataType === "region"){
+    if(graphType ==="spider"){
+      document.getElementById("regSpider").style.display = "block";
+      document.getElementById("facSpider").style.display = "none";
+      document.getElementById("facBar").style.display = "none";
+      document.getElementById("regBar").style.display = "none";
+      svg_container.innerHTML = ""
+    }
+    else if(graphType === "bar"){
+      document.getElementById("regBar").style.display = "block";
+      document.getElementById("facSpider").style.display = "none";
+      document.getElementById("regSpider").style.display = "none";
+      document.getElementById("facBar").style.display = "none";
+      svg_container.innerHTML = ""
+    }
+  }
+  else if(dataType === "factor"){
+    if(graphType ==="spider"){
+      document.getElementById("facSpider").style.display = "block";
+      document.getElementById("regSpider").style.display = "none";
+      document.getElementById("facBar").style.display = "none";
+      document.getElementById("regBar").style.display = "none";
+      svg_container.innerHTML = ""
+    }
+    else if(graphType === "bar"){
+      document.getElementById("facBar").style.display = "block";
+      document.getElementById("facSpider").style.display = "none";
+      document.getElementById("regSpider").style.display = "none";
+      document.getElementById("regBar").style.display = "none";
+      svg_container.innerHTML = ""
+    }
+  }
+}
+
+
+regDataBtn.addEventListener("click", function(){
+                                      choiceClicks("regDataBtn")});
+facDataBtn.addEventListener("click", function(){
+                                      choiceClicks("facDataBtn")});
+barGraphBtn.addEventListener("click", function(){
+                                      choiceClicks("barGraphBtn")});
+spiderPlotBtn.addEventListener("click", function(){
+                                      choiceClicks("spiderPlotBtn")});
+
+///This is relevant after a data/graph type is already chosen
 var rReg = document.getElementById("rReg");
 var rFac = document.getElementById("rFac");
 
@@ -129,8 +210,8 @@ $('#fDrop + [aria-labelledby="fDrop"] a').on('click', function (e) {
 })
 
 graphFactor = function(e){
-  svg1.innerHTML = ""
-  svg = d3.select("#svg1").append("svg")
+  svg_container.innerHTML = ""
+  svg = d3.select("#svg_container").append("svg")
     .attr("width", 500)
     .attr("height", 500);
   radialScale = d3.scaleLinear()
@@ -205,8 +286,8 @@ graphFactor = function(e){
 }
 
 graphRegion = function(e){
-  svg2.innerHTML = ""
-  svg = d3.select("#svg2").append("svg")
+  svg_container.innerHTML = ""
+  svg = d3.select("#svg_container").append("svg")
     .attr("width", 500)
     .attr("height", 500);
   radialScale = d3.scaleLinear()
@@ -299,7 +380,7 @@ function getPathCoordinates(data_point, data){
 }
 
 facBarGraph = function(e){
-  svg3.innerHTML = ""
+  svg_container.innerHTML = ""
   // set the dimensions and margins of the graph
   var margin = {top: 20, right: 20, bottom: 250, left: 20},
       width = 400,
@@ -315,7 +396,7 @@ facBarGraph = function(e){
   // append the svg object to the body of the page
   // append a 'group' element to 'svg'
   // moves the 'group' element to the top left margin
-  var svg = d3.select("#svg3").append("svg")
+  var svg = d3.select("#svg-container").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -352,7 +433,7 @@ facBarGraph = function(e){
 }
 
 regBarGraph = function(e){
-  svg4.innerHTML = ""
+  svg_container.innerHTML = ""
   // set the dimensions and margins of the graph
   var margin = {top: 20, right: 20, bottom: 120, left: 20},
       width = 400,
@@ -368,7 +449,7 @@ regBarGraph = function(e){
   // append the svg object to the body of the page
   // append a 'group' element to 'svg'
   // moves the 'group' element to the top left margin
-  var svg = d3.select("#svg4").append("svg")
+  var svg = d3.select("#svg_container").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
