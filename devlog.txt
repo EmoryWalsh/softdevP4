@@ -93,3 +93,8 @@ benjaminA -- 2020-05-07 18:35
 walshE -- 2020-05-08 8:17
 - Fixed x-axis labels on both sets of bar charts to have vertical labeling
 - Made a key for the spider plots and static coloring system
+
+walshE -- 2020-05-09 11:34
+- Made groups of buttons where you choose what graph to view on the graphs page
+- Made spider plot labels readable
+- Debugged the factor bar graph not showing up
