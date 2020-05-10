@@ -84,6 +84,10 @@ nicholS -- 2020-05-06 15:32
 - Reconfigured data inputs from dropdown into an array to use for the bar graphs
 - Made bar graphs for regions and factors
 
+olinJ -- 2020-05-07
+- Added mission statement to the home page
+- Touched up the countries pages a bit
+
 benjaminA -- 2020-05-07 18:35
 - Made each of the scores/ranks on each country page clickable
 - When clicked, created a bar chart showing all countries in that statistic
@@ -98,3 +102,6 @@ walshE -- 2020-05-09 11:34
 - Made groups of buttons where you choose what graph to view on the graphs page
 - Made spider plot labels readable
 - Debugged the factor bar graph not showing up
+
+olinJ -- 2020-05-10 2:18
+- Updated the help/FAQ page with questions and answers
