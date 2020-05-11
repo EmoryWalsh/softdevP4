@@ -105,3 +105,6 @@ walshE -- 2020-05-09 11:34
 
 olinJ -- 2020-05-10 2:18
 - Updated the help/FAQ page with questions and answers
+
+walshE -- 2020-05-10 20:46
+- Styled help page
