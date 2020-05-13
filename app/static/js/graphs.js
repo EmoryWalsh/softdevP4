@@ -382,7 +382,7 @@ function getPathCoordinates(data_point, data){
 facBarGraph = function(e){
   svg_container.innerHTML = ""
   // set the dimensions and margins of the graph
-  var margin = {top: 20, right: 20, bottom: 250, left: 20},
+  var margin = {top: 20, right: 20, bottom: 250, left: 40},
       width = 400,
       height = 500;
 
@@ -435,7 +435,7 @@ facBarGraph = function(e){
 regBarGraph = function(e){
   svg_container.innerHTML = ""
   // set the dimensions and margins of the graph
-  var margin = {top: 20, right: 20, bottom: 120, left: 20},
+  var margin = {top: 20, right: 20, bottom: 120, left: 40},
       width = 400,
       height = 400;
 
@@ -459,6 +459,7 @@ regBarGraph = function(e){
     // Scale the range of the data in the domains
     x.domain(barRegData.map(function(d) { return d.factor; }));
     y.domain([0, d3.max(barRegData, function(d) { return d.score; })]);
+
 
     // append the rectangles for the bar chart
     //console.log(barRegData)
